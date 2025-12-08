@@ -40,11 +40,14 @@ export const askGemini = async (prompt: string): Promise<string> => {
       }
     });
     
-    if (!response || !response.text) {
+    // response.text is a getter provided by the SDK that extracts text from the response
+    const responseText = response?.text;
+    
+    if (!responseText || responseText.trim().length === 0) {
       throw new Error("AIからの応答が空でした。もう一度お試しください。");
     }
     
-    return response.text;
+    return responseText;
   } catch (error) {
     console.error("Error calling Gemini API:", error);
     
