@@ -8,13 +8,13 @@
 - **安全状況確認**: 地域の安全情報をリアルタイムで把握
 - **コミュニティ支援**: 地域住民同士の助け合いをサポート
 - **チェックリスト**: 防災準備と避難時の確認事項
-- **Gemini AI統合**: AIによる防災アドバイスと質問応答
+- **ローカルAI統合**: Ollamaを使用した完全オフライン動作の防災AIアシスタント
 
 ## 技術スタック
 
 - **フロントエンド**: React 19.2 + TypeScript
 - **ビルドツール**: Vite 6.2
-- **AI**: Google Gemini API
+- **AI**: Ollama (Llama 3.2 / Phi-3)
 - **スタイリング**: Tailwind CSS (カスタム)
 - **コンテナ**: Docker + Docker Compose
 
@@ -24,7 +24,7 @@
 
 - Node.js 20以上
 - npm
-- Gemini APIキー（[Google AI Studio](https://ai.google.dev/)で取得）
+- Docker & Docker Compose
 
 ### ローカル環境での実行
 
@@ -39,11 +39,23 @@
    npm install
    ```
 
-3. **環境変数の設定**
-   
-   `.env`ファイルを作成し、Gemini APIキーを設定:
+3. **Ollamaのセットアップ**
+
+   Docker Composeを使用してOllamaを起動します。
+
    ```bash
-   GEMINI_API_KEY=your_gemini_api_key_here
+   docker-compose up -d ollama
+   ```
+
+   初回起動後、使用するモデルをダウンロードする必要があります。
+   現在の環境ではメモリ制約のため、超軽量モデル `qwen2:0.5b` の使用を推奨します。
+
+   ```bash
+   # 軽量モデルのダウンロード（推奨）
+   docker-compose exec ollama ollama pull qwen2:0.5b
+   
+   # メモリに余裕がある場合（8GB以上推奨）
+   # docker-compose exec ollama ollama pull llama3.2:3b
    ```
 
 4. **開発サーバーの起動**

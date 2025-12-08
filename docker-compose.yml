@@ -15,6 +15,16 @@ services:
     stdin_open: true
     tty: true
 
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_ORIGINS=*
+    command: serve
+
   # プロダクション用の設定
   app-prod:
     build:
@@ -27,3 +37,6 @@ services:
       - GEMINI_API_KEY=${GEMINI_API_KEY}
     profiles:
       - production
+
+volumes:
+  ollama_data:
