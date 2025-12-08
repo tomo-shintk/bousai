@@ -40,12 +40,12 @@ const CommunityHelpCard: React.FC = () => {
         <div className="flex-grow overflow-y-auto max-h-64 pr-2">
           <ul className="space-y-2">
             {filteredPosts.map(post => (
-              <li key={post.id} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                <div>
-                  <p className="font-semibold text-gray-800">{post.item}</p>
+              <li key={post.id} className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-2 sm:p-3 bg-gray-50 rounded-lg gap-2">
+                <div className="flex-grow">
+                  <p className="text-sm sm:text-base font-semibold text-gray-800">{post.item}</p>
                   <p className="text-xs text-gray-500">{post.user} • {post.distance}</p>
                 </div>
-                <button className="bg-white border border-blue-500 text-blue-500 text-xs font-bold py-1 px-3 rounded-full hover:bg-blue-50">
+                <button className="bg-white border border-blue-500 text-blue-500 text-xs font-bold py-1 px-3 rounded-full hover:bg-blue-50 whitespace-nowrap self-end sm:self-auto">
                   詳細
                 </button>
               </li>

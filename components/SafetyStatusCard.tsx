@@ -29,11 +29,11 @@ const SafetyStatusCard: React.FC = () => {
 
   return (
     <Card title="家族の安否確認" icon={<UserGroupIcon />}>
-      <div className="space-y-3">
+      <div className="space-y-2 sm:space-y-3">
         {familyMembers.map((member) => (
-          <div key={member.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-            <span className="text-gray-700 font-medium">{member.name}</span>
-            <span className={`px-3 py-1 text-sm font-semibold rounded-full ${getStatusClass(member.status)}`}>
+          <div key={member.id} className="flex items-center justify-between p-2 sm:p-3 bg-gray-50 rounded-lg">
+            <span className="text-sm sm:text-base text-gray-700 font-medium">{member.name}</span>
+            <span className={`px-2 sm:px-3 py-1 text-xs sm:text-sm font-semibold rounded-full ${getStatusClass(member.status)}`}>
               {member.status}
             </span>
           </div>
