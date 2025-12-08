@@ -32,10 +32,10 @@ const ChecklistCard: React.FC = () => {
   return (
     <Card title="わが家の防災チェック" icon={<CheckBadgeIcon />}>
       <div>
-        <div className="mb-4">
+        <div className="mb-3 sm:mb-4">
           <div className="flex justify-between mb-1">
-            <span className="text-base font-medium text-blue-700">進捗</span>
-            <span className="text-sm font-medium text-blue-700">{progress}%</span>
+            <span className="text-sm sm:text-base font-medium text-blue-700">進捗</span>
+            <span className="text-xs sm:text-sm font-medium text-blue-700">{progress}%</span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2.5">
             <div className="bg-blue-600 h-2.5 rounded-full" style={{ width: `${progress}%` }}></div>
@@ -49,9 +49,9 @@ const ChecklistCard: React.FC = () => {
                 type="checkbox"
                 checked={item.checked}
                 onChange={() => toggleItem(item.id)}
-                className="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+                className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 flex-shrink-0"
               />
-              <label htmlFor={`item-${item.id}`} className={`ml-3 text-sm font-medium text-gray-900 ${item.checked ? 'line-through text-gray-500' : ''}`}>
+              <label htmlFor={`item-${item.id}`} className={`ml-2 sm:ml-3 text-xs sm:text-sm font-medium text-gray-900 ${item.checked ? 'line-through text-gray-500' : ''}`}>
                 {item.text}
               </label>
             </div>

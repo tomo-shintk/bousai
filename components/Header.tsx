@@ -5,10 +5,10 @@ const Header: React.FC = () => {
   return (
     <header className="bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <h1 className="text-2xl font-bold text-blue-800">つながる防災</h1>
+        <div className="flex items-center justify-between h-14 sm:h-16">
+          <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-blue-800">つながる防災</h1>
           <div className="relative">
-            <select className="appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-2 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
+            <select className="appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-1.5 px-2 pr-6 sm:py-2 sm:px-4 sm:pr-8 text-sm sm:text-base rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
               <option>日本語</option>
               <option>English</option>
               <option>やさしい日本語</option>
