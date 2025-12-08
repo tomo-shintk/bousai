@@ -1,35 +1,29 @@
+// 課金を回避するため、AIサービスの代わりにローカルの防災知識ベースを使用します
 
-import { GoogleGenAI } from "@google/genai";
-
-const API_KEY = process.env.API_KEY;
-
-if (!API_KEY) {
-  // In a real app, you might want to handle this more gracefully.
-  // For this example, we throw an error if the key is missing.
-  console.warn("API_KEY environment variable not set. Gemini API calls will fail.");
-}
-
-const ai = new GoogleGenAI({ apiKey: API_KEY });
-
-const systemInstruction = `あなたは親切で優秀な防災アシスタントです。日本の災害対策に関する質問に対して、子供や外国人にも理解しやすいように、専門用語を避けた「やさしい日本語」で、簡潔かつ正確に回答してください。箇条書きや絵文字を効果的に使って、情報を分かりやすく伝えてください。`;
+// 簡易的な応答データ
+const responses: Record<string, string> = {
+  "地震": "地震が発生したら、まず身の安全を確保してください。机の下などに隠れ、頭を守りましょう。揺れが収まったら、火の始末をし、出口を確保してください。余震にも注意が必要です。",
+  "台風": "台風が接近している時は、不要不急の外出を控えましょう。窓ガラスの補強や、飛ばされやすいものを屋内にしまうなどの対策を行いましょう。ハザードマップで避難場所を確認しておくことも大切です。",
+  "火事": "火事を見つけたら、大声で周りに知らせ、119番通報してください。初期消火が可能な場合は行いますが、天井に火が燃え移ったらすぐに避難してください。煙を吸わないように低い姿勢で移動しましょう。",
+  "津波": "強い揺れを感じたり、津波警報が出た場合は、すぐに高台や避難ビルなど、高い場所に避難してください。警報が解除されるまで戻らないでください。「遠く」より「高く」逃げることが重要です。",
+  "備蓄": "最低3日分、できれば1週間分の食料と飲料水（1人1日3リットル）を備蓄しましょう。その他、簡易トイレ、懐中電灯、ラジオ、救急セット、モバイルバッテリーなども必要です。",
+  "避難": "避難する際は、動きやすい服装で、非常持ち出し袋を持って移動してください。エレベーターは使わず、階段を利用しましょう。近所の人にも声をかけ、助け合って避難しましょう。",
+  "連絡": "災害時は電話がつながりにくくなります。災害用伝言ダイヤル（171）や、SNS、災害用伝言板などを活用して安否確認を行いましょう。家族で集合場所や連絡方法を事前に決めておくことが大切です。",
+  "default": "ご質問ありがとうございます。防災に関しては、日頃からの備えが大切です。\n\n具体的なキーワード（例：「地震」「台風」「備蓄」「避難」など）を含めて質問していただくと、より詳しい情報をお答えできます。\n\nこのAIアシスタントは現在、課金を回避するために簡易モードで動作しています。"
+};
 
 export const askGemini = async (prompt: string): Promise<string> => {
-  if (!API_KEY) {
-    return Promise.resolve("APIキーが設定されていないため、AIアシスタントは利用できません。");
+  // 擬似的な遅延を追加してAIっぽく見せる
+  await new Promise(resolve => setTimeout(resolve, 800));
+
+  const lowerPrompt = prompt.toLowerCase();
+  
+  // キーワードマッチング
+  for (const key in responses) {
+    if (lowerPrompt.includes(key)) {
+      return responses[key];
+    }
   }
 
-  try {
-    const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
-      contents: prompt,
-      config: {
-        systemInstruction: systemInstruction,
-      }
-    });
-    
-    return response.text;
-  } catch (error) {
-    console.error("Error calling Gemini API:", error);
-    throw new Error("Failed to get response from Gemini API.");
-  }
+  return responses["default"];
 };
