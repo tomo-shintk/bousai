@@ -1,0 +1,20 @@
+[
+  {
+    "id": "tsunami-evacuation",
+    "category": "tsunami",
+    "subcategory": "evacuation",
+    "title": "津波からの避難",
+    "content": {
+      "ja": "強い揺れを感じたり、津波警報が出た場合は、直ちに避難してください：\n\n1. 海岸から離れ、高台や避難ビルなど高い場所へ逃げる\n2. 「遠く」よりも「高く」逃げることが重要\n3. 車での避難は原則避ける（渋滞に巻き込まれる危険性）\n4. 警報・注意報が解除されるまで戻らない\n5. 第一波が引いても、第二波、第三波が来る可能性がある",
+      "ja-easy": "大きな 揺れや 津波の ニュースが あったら、すぐに 逃げてください：\n\n1. 海から 離れて、高い ところへ 行ってください\n2. 「遠く」より 「高く」 逃げてください\n3. 車は 使わないでください\n4. 安全に なるまで 戻らないでください\n5. 津波は 何回も 来ます",
+      "en": "Evacuation from Tsunami:\n\n1. Move away from the coast to high ground or evacuation buildings immediately\n2. Prioritize 'higher' ground over 'farther' distance\n3. Avoid using cars (risk of traffic jams)\n4. Do not return until warnings are lifted\n5. Tsunami waves come repeatedly; stay away even after the first wave recedes"
+    },
+    "severity": "critical",
+    "targetAudience": ["general", "coastal_residents"],
+    "relatedTopics": ["earthquake-during-indoor"],
+    "sources": [
+      "https://www.jma.go.jp/"
+    ],
+    "lastUpdated": "2025-12-08"
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "emergency-kit-basic",
+    "category": "preparation",
+    "subcategory": "stockpile",
+    "title": "非常持ち出し袋の基本セット",
+    "content": {
+      "ja": "避難時に持ち出す最低限のアイテムリストです：\n\n- 飲料水（500mlペットボトル数本）\n- 非常食（乾パン、缶詰など）\n- 懐中電灯・予備電池\n- 携帯ラジオ\n- 救急セット（絆創膏、消毒液、常備薬）\n- 現金（小銭を含む）\n- 貴重品（身分証、保険証のコピー）\n- モバイルバッテリー\n- マスク・衛生用品",
+      "ja-easy": "逃げるときに 持っていく もの：\n\n- 水\n- 食べ物（パンや 缶詰）\n- 懐中電灯（ライト）\n- ラジオ\n- 薬や 絆創膏\n- お金\n- 大切な 書類の コピー\n- スマホの 充電器\n- マスク",
+      "en": "Basic Emergency Kit Checklist:\n\n- Drinking water\n- Emergency food (crackers, canned food)\n- Flashlight and spare batteries\n- Portable radio\n- First aid kit\n- Cash (including coins)\n- Valuables (copies of ID, insurance)\n- Mobile battery\n- Masks and hygiene items"
+    },
+    "severity": "medium",
+    "targetAudience": ["general"],
+    "relatedTopics": ["stockpile-home"],
+    "sources": [
+      "https://www.kantei.go.jp/jp/headline/bousai/sonae.html"
+    ],
+    "lastUpdated": "2025-12-08"
+  }
+]
