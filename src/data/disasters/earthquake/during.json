@@ -1,0 +1,43 @@
+[
+  {
+    "id": "earthquake-during-indoor",
+    "category": "earthquake",
+    "subcategory": "during",
+    "title": "地震発生時の屋内での行動",
+    "content": {
+      "ja": "地震が発生したら以下の行動を取ってください：\n\n1. まず低い姿勢になり、頭を守る\n2. 机やテーブルの下に隠れる\n3. 揺れが収まるまでじっとしている\n4. 慌てて外に飛び出さない\n5. 揺れが収まったら火の始末と出口の確保",
+      "ja-easy": "地震のとき、建物の中にいる人へ：\n\n1. 低く なってください\n2. 頭を 守ってください\n3. 机の下に 入ってください\n4. 揺れが 止まるまで 動かないでください\n5. 外に すぐに 出ないでください",
+      "en": "During an earthquake indoors:\n\n1. DROP to your hands and knees\n2. Take COVER under a desk or table\n3. HOLD ON until the shaking stops\n4. Don't rush outside\n5. After shaking stops, check for fires and clear exits"
+    },
+    "severity": "critical",
+    "targetAudience": ["general"],
+    "relatedTopics": ["earthquake-after-indoor", "evacuation-route"],
+    "sources": [
+      "https://www.jma.go.jp/",
+      "https://www.fdma.go.jp/"
+    ],
+    "lastUpdated": "2025-12-08",
+    "media": {
+      "images": ["/assets/earthquake-drop-cover-hold.png"]
+    }
+  },
+  {
+    "id": "earthquake-after-indoor",
+    "category": "earthquake",
+    "subcategory": "after",
+    "title": "地震直後の屋内での行動",
+    "content": {
+      "ja": "揺れが収まったら、以下の点に注意して行動してください：\n\n1. 火の元を確認し、火災が発生していれば初期消火を行う\n2. 出口を確保する（ドアや窓を開ける）\n3. ガラスの破片などに注意し、靴やスリッパを履く\n4. 慌てて外に飛び出さない（落下物に注意）\n5. 正しい情報をラジオやスマホで確認する",
+      "ja-easy": "揺れが 終わったら、次のことを してください：\n\n1. 火を 消してください\n2. ドアや 窓を 開けてください\n3. 靴を 履いてください\n4. 急いで 外に 出ないでください\n5. ラジオや スマホで ニュースを 見てください",
+      "en": "After the shaking stops indoors:\n\n1. Check for fire and extinguish if possible\n2. Secure an exit (open doors and windows)\n3. Watch out for broken glass and wear shoes\n4. Do not rush outside (watch for falling objects)\n5. Check for accurate information via radio or smartphone"
+    },
+    "severity": "high",
+    "targetAudience": ["general"],
+    "relatedTopics": ["earthquake-during-indoor", "evacuation-route"],
+    "sources": [
+      "https://www.jma.go.jp/",
+      "https://www.fdma.go.jp/"
+    ],
+    "lastUpdated": "2025-12-08"
+  }
+]

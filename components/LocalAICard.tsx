@@ -36,7 +36,7 @@ const LocalAICard: React.FC = () => {
     <Card title="ローカル防災AI" icon={<SparklesIcon />}>
       <div className="flex flex-col h-full">
         <p className="text-sm text-gray-600 mb-4">
-          インターネット接続なしで動作するAIアシスタントです。防災に関する質問を入力してください。
+          インターネット接続なしで動作するAIアシスタントです。防災知識ベースと連携して回答します。
         </p>
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
@@ -44,7 +44,7 @@ const LocalAICard: React.FC = () => {
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="例: 避難所の場所はどこ？"
+              placeholder="例: 地震が起きたらどうする？"
               className="flex-grow p-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
               disabled={isLoading}
             />

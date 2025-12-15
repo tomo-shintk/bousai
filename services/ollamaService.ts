@@ -1,4 +1,5 @@
 import { Ollama } from 'ollama/browser';
+import { knowledgeBase } from '../src/services/knowledgeBase';
 
 const ollama = new Ollama({ host: 'http://localhost:11434' });
 
@@ -12,11 +13,26 @@ const SYSTEM_PROMPT = `
 
 export const askOllama = async (prompt: string): Promise<string> => {
   try {
+    // 1. まず知識ベースを検索
+    const searchResults = await knowledgeBase.search(prompt);
+    
+    let context = "";
+    if (searchResults.length > 0) {
+      context = "\n\n参考情報:\n" + searchResults.map(item => 
+        `【${item.title}】\n${item.content.ja}`
+      ).join("\n\n");
+    }
+
+    // 2. 検索結果をコンテキストとしてプロンプトに追加
+    const finalPrompt = context 
+      ? `${prompt}\n\n以下の参考情報を元に回答してください。もし参考情報が質問と直接関係ない場合は、一般的な防災知識に基づいて回答してください。${context}`
+      : prompt;
+
     const response = await ollama.chat({
       model: 'qwen2:0.5b', // メモリ制約のため軽量モデルを使用 (llama3.2:3b等は環境によってクラッシュする可能性があります)
       messages: [
         { role: 'system', content: SYSTEM_PROMPT },
-        { role: 'user', content: prompt }
+        { role: 'user', content: finalPrompt }
       ],
     });
     return response.message.content;
